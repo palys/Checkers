@@ -2,7 +2,7 @@ package logic;
 
 public abstract class Checker {
 
-	private final Color color;
+	protected final Color color;
 	
 	public Checker(Color color) {
 		this.color = color;
@@ -13,4 +13,5 @@ public abstract class Checker {
 	}
 	
 	public abstract int getRange();
+	public abstract String toString();
 }

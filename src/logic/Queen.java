@@ -11,4 +11,13 @@ public class Queen extends Checker {
 		return Chessboard.MAX_SIZE;
 	}
 
+	@Override
+	public String toString() {
+		if (this.color == Color.WHITE) {
+			return "W";
+		} else {
+			return "B";
+		}
+	}
+
 }

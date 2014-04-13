@@ -1,5 +1,7 @@
 package logic;
 
+import Utils.Logger;
+
 public class Chessboard {
 	
 	public final static int MAX_SIZE = 1000;
@@ -101,10 +103,33 @@ public class Chessboard {
 		}
 	}
 	
+	private boolean checkerExist(int x, int y) {
+		return board[x][y] != null;
+	}
+	
+	private boolean isInBorders(int x, int y, int dx, int dy) {
+		return (x + dx < size && x + dx >= 0) &&
+			   (y + dy < size && y + dy >= 0);
+	}
+	
 	public boolean isMoveValid(Move move) {
-		return true;
+		int dx = move.dx();
+		int dy = move.dy();
+		int x = move.getFromX();
+		int y = move.getFromY();
 		
-		//TODO
+		if (!checkerExist(x,y)) {
+			Logger.log("Checker does not exist");
+			return false;
+		}
+		
+		if (!isInBorders(x, y, dx, dy)) {
+			Logger.log("Checker moves outside borders");
+			return false;
+		}
+		
+		
+		return true;
 	}
 	
 	public void doMove(Move move) {
@@ -112,6 +137,41 @@ public class Chessboard {
 		
 		promoteQueens();
 		actualizeState();
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		
+		for (int i = size - 1; i >= 0; i--) {
+			builder.append((char)('a' + i))
+				   .append(": ");
+			
+			for (int j = 0; j < size; j++) {
+				if (board[j][i] != null) {
+					builder.append(board[j][i].toString());
+				} else {
+					builder.append("_");
+				}
+				
+				builder.append(" ");
+			}
+			builder.append("\n");
+		}
+		
+		builder.append("   ");
+		
+		for (int i = 0; i < size; i++) {
+			builder.append(i + 1)
+				   .append(" ");
+		}
+		
+		return builder.toString();
+	}
+	
+	public static void main(String[] args) {
+		Chessboard c = Chessboard.startingChessboard(5);
+		System.out.println(c);
 	}
 	
 }

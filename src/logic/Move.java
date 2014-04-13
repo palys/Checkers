@@ -51,4 +51,12 @@ public class Move {
 		return new Move(fromX, fromY, toX, toY);
 	}
 	
+	public int dx() {
+		return toX - fromX;
+	}
+	
+	public int dy() {
+		return toY - fromY;
+	}
+	
 }
