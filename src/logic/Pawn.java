@@ -20,4 +20,9 @@ public class Pawn extends Checker {
 		}
 	}
 
+	@Override
+	public boolean canMoveBackward() {
+		return false;
+	}
+
 }

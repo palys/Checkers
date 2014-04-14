@@ -20,19 +20,19 @@ public class Move {
 	}
 
 	public int getFromX() {
-		return fromX;
+		return fromX - 1;
 	}
 
 	public int getFromY() {
-		return fromY;
+		return fromY - 1;
 	}
 
 	public int getToX() {
-		return toX;
+		return toX - 1;
 	}
 
 	public int getToY() {
-		return toY;
+		return toY - 1;
 	}
 	
 	private static boolean isProper(int x1, int y1, int x2, int y2) {

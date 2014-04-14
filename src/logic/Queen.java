@@ -20,4 +20,9 @@ public class Queen extends Checker {
 		}
 	}
 
+	@Override
+	public boolean canMoveBackward() {
+		return true;
+	}
+
 }

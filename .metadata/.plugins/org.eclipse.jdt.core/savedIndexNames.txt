@@ -1,0 +1,1 @@
+INDEX VERSION 1.127+/home/tpalys/Studia/sem6/rozprochy/lab3/Checkers/.metadata/.plugins/org.eclipse.jdt.core

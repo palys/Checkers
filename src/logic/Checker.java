@@ -14,4 +14,5 @@ public abstract class Checker {
 	
 	public abstract int getRange();
 	public abstract String toString();
+	public abstract boolean canMoveBackward();
 }
